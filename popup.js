@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Function to open search in new tab
 function initiateSearch(){
   var search = document.getElementById("entry").value;
-  search.replace(" ", "_");
+  search = search.replace(/[^\w\s]/gi, "").replace(" ", "_");
   var link = "http://en.wikipedia.org/wiki/".concat(search);
   chrome.tabs.create(  
   {
